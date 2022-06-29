@@ -1,6 +1,13 @@
 // You must RETURN your result in each function!
 
 function printNums(nums) {
+  const newArray = []
+  nums.forEach(element => {
+    newArray.push(element)
+    
+  });
+    return newArray
+  
   /**
    *  Using .forEach, add each number in the nums array to a new array.
    * @param nums => [1,2,3,4]
@@ -8,6 +15,14 @@ function printNums(nums) {
 }
 
 function returnSums(nums) {
+  const returnedSums = []
+  nums.forEach((element, index) => {
+    returnedSums.push(element + index)
+    
+  });
+  return returnedSums;
+  
+  
   /**
    * Using forEach, push the sum of n plus the index
    * to a new array and return the new array
@@ -16,6 +31,12 @@ function returnSums(nums) {
 }
 
 function returnTotal(objs) {
+  let returnedTotal = 0; 
+  objs.forEach((obj) => {
+    returnedTotal += obj.n
+  });
+  return returnedTotal;
+  
   /**
    * Using forEach return a number that is the total sum of all numbers in the array of objects.
    * The key for each object will be n
@@ -24,6 +45,15 @@ function returnTotal(objs) {
 }
 
 function printMoney(decimals) {
+  
+  let formatDollar = [];
+  decimals.map((element) => {
+    formatDollar.push('$'+element.toFixed(2));
+  })
+  return formatDollar;
+  
+  
+  
   /**
    * @param decimals => [2.30, 2.40, 32.99]
    * Using .map, return an array of decimals formatted as dollars.
@@ -36,13 +66,25 @@ function printMoney(decimals) {
 }
 
 function returnAllTrueValues(values) {
+ return values.filter((element) => {
+    return element.happy === true;
+  })
+  
+  
+  
   /**
    * @param values => [{name: 'Joe', happy:false}]
    * Using .filter, return an array of objects where happy equals true
    */
 }
 
-function addTwo(nums) {
+  function addTwo(nums) {
+  return nums.reduce((num, currentValue) => {
+  return num + currentValue + 2
+ }, 0)
+ 
+
+ 
   /**
    * @param nums => [1,2,3,4]
    * Using .reduce, return the total sum of all numbers.
@@ -53,6 +95,10 @@ function addTwo(nums) {
 }
 
 function joinStrings(strings) {
+  return strings.reduce((string, otherString) => {
+    return string + otherString + ""
+  }, "")
+  
   /**
    * @param strings => ['g', 'f', 'z']
    * Using .reduce, return a new string containing each string from the strings array.
@@ -60,19 +106,19 @@ function joinStrings(strings) {
 }
 
 //Bonus
-function sortObjectsByValue(objs) {
+//function sortObjectsByValue(objs) {
   /**
    * @param objs => [{value: 1}, {value:2}, {value:23}]
    * Using .sort, sort the array of objects by the value key in ascending order
    * .sort documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
    */
-}
+//}
 
 module.exports = {
-  printNums,
-  returnSums,
+ printNums,
+ returnSums,
   returnTotal,
-  printMoney,
+ printMoney,
   returnAllTrueValues,
   sortObjectsByValue,
   addTwo,
